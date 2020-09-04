@@ -14,17 +14,15 @@ Interaction with proxy-based solution such as TCP splitting is out of scope. Mul
 
 The functions to be considered by AOD include:
 
-* Trigger conditions of ACKs: An ACK can be triggered by receiving data from the forward path in the unit of number of packets or bytes, or be triggered by a timer at the receiver. AOD will specify the number of packets or bytes and the time interval to be counted for each acknowledgement mechanism, and also seek the optimal combination between the above two conditions and other event-based triggered conditions (e.g., packet loss, parameter update, and zero window notification).
+* Trigger conditions of ACKs: An ACK can be triggered by receiving data from the forward path in the unit of number of packets or bytes (condition 1), or be triggered by a timer at the receiver (condition 2). AOD will specify the number of packets or bytes and the time interval to be counted for each acknowledgement mechanism, and also seek the optimal combination between the above two conditions and other event-based trigger conditions (e.g., packet loss, parameter update, and zero window notification).
 
-* Definitions of information carried in ACKs: 
+* Definitions of information carried in ACKs: In some cases (e.g., LTE), enlarging the size of ACKs will increase the backward traffic volume, cancelling out the benefit of reducing ACK frequency. However, the overhead introduced by increasing the size of ACK rather than increasing the number of ACKs can be negligible in other cases (e.g., WLAN). AOD will answer the question that what information should be carried in ACKs, and why it is necessary. 
 
-* Interaction with round-trip timing:  
+* Interaction with round-trip timing: Per-packet acknowledgement achieves ideal round-trip timing. The initial focus will be on mininum RTT estimation under varying ACK frequency, but a "general" estimation framework of delay, which acts as input of different ACK-clocking algorithms, will be included in order to reduce the estimation biases introduced by changing ACK frequency.
 
-* Interaction with loss recovery:
+* Interaction with loss recovery: The delay from a packet loss to the packet recovery is crucial to packet reassembling, and thus impacts transport performance. AOD will focus on timely loss detection on lossy forward path and robust feedback on bidirectionally lossy path.
 
-* Interaction with congestion control:
-
-AOD can be deployed in both  .
+* Interaction with congestion control: Lowering ACK frequency results in burstiness. And probe of transport state requires modifications to the protocol stack. AOD will give the principle of modification to various types of congestion control algorithms.   
 
 ## Relationship to Other WGs and RGs
 
