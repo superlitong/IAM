@@ -1,4 +1,4 @@
-# Charter Proposal for a AOD WG, Version 0.1
+# Charter Proposal for a AOD WG, Version 0.2
 
 ## Background
 
@@ -8,15 +8,15 @@ On the other hand, robustness of changes to protocols relies heavily on extensiv
 
 ## AOD
 
-AOD (Acknowledgement On Demand) attempts to revisit the backward signaling of the transport protocol, seeking the optimal acknowledgement mechanism where the ACKs are exactly required by the transport. Basically, the trigger conditions of ACKs and the information carried in ACKs will be specified according to network environment and applications, which allows the overhead of ACKs and the efficiency of ACK-clocking algorithms (e.g., round-trip timing, loss recovery, and congestion control) to meet the transport requirements.
+AOD (Acknowledgement On Demand) attempts to revisit the backward signaling of the transport protocol, seeking the optimal acknowledgement mechanism where the ACKs are exactly required by the transport. Basically, the trigger conditions of ACKs and the information carried in ACKs will be specified according to network environment and applications. Also, AOD will focus on the definition of the division of labor between sender and receiver, allowing the overhead of ACKs and the efficiency of ACK-clocking algorithms (e.g., round-trip timing, loss recovery, and congestion control) to meet the transport requirements. 
 
 Interaction with proxy-based solution such as TCP splitting is out of scope. Multiple-path backward signaling will not be specifically addressed and is left for future consideration.
 
 The functions to be considered by AOD include:
 
-* Trigger conditions of ACKs: An ACK can be triggered by receiving data from the forward path in the unit of number of packets or bytes (condition 1), or be triggered by a timer at the receiver (condition 2). AOD will specify the number of packets or bytes and the time interval to be counted for each acknowledgement mechanism, and also seek the optimal combination between the above two conditions and other event-based trigger conditions (e.g., packet loss, parameter update, and zero window notification).
+* Trigger conditions of ACKs: An ACK can be triggered by receiving data from the forward path in the unit of number of packets or bytes (condition 1), or be triggered by a timer at the receiver (condition 2). Initially, AOD will specify the number of packets or bytes and the time interval to be counted for each acknowledgement mechanism, and seek the optimal combination between the above two conditions and other event-based trigger conditions (e.g., packet loss, parameter update, and zero window notification). Also, the selection between negative ACK (NACK/NAK) and positive ACK will be included in order to speed up recovery when loss event occurs.
 
-* Definitions of information carried in ACKs: In some cases (e.g., LTE), enlarging the size of ACKs will increase the backward traffic volume, cancelling out the benefit of reducing ACK frequency. However, the overhead introduced by increasing the size of ACK rather than increasing the number of ACKs can be negligible in other cases (e.g., WLAN). AOD will answer the question that what information should be carried in ACKs, and why it is necessary. 
+* Definitions of information carried in ACKs: In some cases (e.g., LTE), enlarging the size of ACKs will increase the backward traffic volume, cancelling out the benefit of reducing ACK frequency. However, the overhead introduced by increasing the size of ACK rather than increasing the number of ACKs can be negligible in other cases (e.g., WLAN). AOD will answer the question that what information should be carried in ACKs, and why it is necessary. In addition, mechanisms on information compression/decompression in ACKs will be included in order to improve space utilization. 
 
 * Interaction with round-trip timing: Per-packet acknowledgement achieves ideal round-trip timing. The initial focus will be on mininum RTT estimation under varying ACK frequency, but a "general" estimation framework of delay, which acts as input of different ACK-clocking algorithms, will be included in order to reduce the estimation biases introduced by changing ACK frequency.
 
