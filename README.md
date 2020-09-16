@@ -1,4 +1,4 @@
-# Charter Proposal for a IAM side meeting, Version 0.3
+# Charter Proposal for an IAM side meeting, Version 0.3
 
 ## Background
 
@@ -38,6 +38,3 @@ IAM will actively consult ICCRG for congestion control issues, and coordinate it
 
 A "problems and opportunities" document will be adopted as the basis of this work. Then an IAM specification will be adopted as the main deliverable.
 
-* IAM problems and opportunities, WG document adopted, January 2021
-* IAM specification, WG document(s) adopted, February 2021
-* IAM specification, PS to IESG, February 2022
