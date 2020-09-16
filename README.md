@@ -1,4 +1,4 @@
-# Charter Proposal for a IAM WG, Version 0.3
+# Charter Proposal for a IAM side meeting, Version 0.3
 
 ## Background
 
@@ -32,7 +32,7 @@ The functions to be considered by IAM include:
 
 ## Relationship to Other WGs and RGs
 
-The working group will actively consult ICCRG for congestion control issues, and coordinate its progress with the TCPM and QUIC working groups to ensure that we are fulfilling the needs of these constituencies.
+IAM will actively consult ICCRG for congestion control issues, and coordinate its progress with the TCPM and QUIC working groups to ensure that we are fulfilling the needs of these constituencies.
 
 ## Milestones
 
